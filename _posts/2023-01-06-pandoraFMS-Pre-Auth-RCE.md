@@ -9,9 +9,9 @@ While chaining three primitives together I was able to achieve pre-auth remote c
 
 The issues which were chained for the pre-auth exploit were:
 ---
-* Authentication bypass due to hardcoded secrets
+* Authentication Bypass due to Hardcoded Secrets
 * Arbitrary File Upload
-* Path traversal leading to local file inclustion
+* Path Traversal leading to Local File Inclusion
 
 For the first issue, the file upload, a simple grep for `$_FILE` was enought to identify one endpoint which seemed to accept a file upload and store the file on disk without requiring authentication.
 
