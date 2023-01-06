@@ -193,7 +193,7 @@ Funny enough RCE can also be achieved way easier, but where would the fun be if 
 
 I didn't show you the whole `upload_head_image.php` file, there is another `if` case - look below:
 
-```
+```php
 } else if (isset($_GET['up'])) {            [1]
     if (isset($_GET['base64'])) {
         $content = base64_decode(file_get_contents('php://input'));
