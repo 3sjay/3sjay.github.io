@@ -28,9 +28,7 @@ Schneider Electric APC Easy UPS suffers from an RCE due to vulnerable Classes wi
 
 #### Short Intro:
 ---
-The named product expose an RMI registry on TCP port 41009 which exposes several interfaces. A number of these interfaces expose RMI Methods,
-which accept a non-primitive data-type as a parameter and self-implemented Classes. Also known vulnerable Classes (Classes containing RCE Gadgets) are within the classpath.
-This leads to a scenario where pre-auth RCE as the SYSTEM user can be obtained through deserialization attacks.
+The named product exposes an RMI registry on TCP port 41009 which exposes several interfaces. A number of these interfaces expose RMI Methods, which accept a non-primitive data-type as a parameter and self-implemented Classes. Also known vulnerable Classes (Classes containing RCE Gadgets) are within the classpath. This leads to a scenario where pre-auth RCE as the SYSTEM user can be obtained through deserialization attacks.
 
 
 #### Root Cause Analysis:
