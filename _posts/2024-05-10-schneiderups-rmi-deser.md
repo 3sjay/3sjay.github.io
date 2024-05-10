@@ -7,7 +7,7 @@ One of the identified bugs was patched in between of the time me reporting it to
 The vulnerability was a deserialization on the application level within an exposed RMI method. So when a non-primitive type is used as one of the parameters of an exposed RMI method, we can abuse that for arbitrary deserialization and might leverage this for RCE. I'll share exploit code which can be used as a sort of template when you identify a similar issue and want to create a standalone exploit.
 
 
-So without further ado here is a (slightly modified version) of the report I sent to ZDI.
+So without further ado here is a (slightly modified) version of the report I sent to ZDI.
 
 
 ## Schneider Electric APC Easy UPS Online - RMI Deserialization to RCE
