@@ -1,6 +1,6 @@
 ## Schneider Electric APC Easy UPS RCE - Java RMI Applevel Deser for JEP>=290 
 
-Last year I looked into [Schneider APC UPS](https://www.apc.com/za/en/download/document/APC_install_APC_UPS_windows/) for vulnerabilities, to eventually report them to the [ZDI](https://www.zerodayinitiative.com/) plattform.
+Last year I looked into [Schneider APC UPS](https://www.apc.com/za/en/download/document/APC_install_APC_UPS_windows/) for vulnerabilities, to eventually report them to [ZDI](https://www.zerodayinitiative.com/).
 
 One of the identified bugs was patched in between of the time me reporting it to the ZDI plattorm and ZDI analyzing the report which allows me to share it with you.
 
