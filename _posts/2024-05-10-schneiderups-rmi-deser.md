@@ -2,7 +2,7 @@
 
 Last year I looked into [Schneider APC UPS](https://www.apc.com/za/en/download/document/APC_install_APC_UPS_windows/) for vulnerabilities, to eventually report them to [ZDI](https://www.zerodayinitiative.com/).
 
-One of the identified bugs was patched in between of the time me reporting it to the ZDI plattorm and ZDI analyzing the report which allows me to share it with you.
+One of the identified bugs was patched in between of the time me reporting it to ZDI and ZDI analyzing the report, which allows me to share it with you.
 
 The vulnerability was a deserialization on the application level within an exposed RMI method. So when a non-primitive type is used as one of the parameters of an exposed RMI method, we can abuse that for arbitrary deserialization and might leverage this for RCE. I'll share exploit code which can be used as a sort of template when you identify a similar issue and want to create a standalone exploit.
 
