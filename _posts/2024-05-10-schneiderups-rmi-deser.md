@@ -62,8 +62,7 @@ So as soon as a vulnerable Class (a Class containing a useful Gadget) is within 
 
 The Class `SystemService` implements the `SystemServiceInterface` and contains a Method which accepts a self-implemented Class (`ComputerConfig`) as parameter. This method was chosen to get targeted for the attack.
 
-The overall idea is now, to pass an RCE Gadget Object instead of the expected ComputerConfig Object and get Remote Command Execution as SYSTEM user through the
-deserialization of our passed Gadget Object.
+The overall idea is now, to pass an RCE Gadget Object instead of the expected `ComputerConfig` Object and get Remote Command Execution as `SYSTEM` user through the deserialization of our passed Gadget Object.
 
 
 While checking for potential gadgets, a look inside the respective lib directory revealed the following:
@@ -220,7 +219,7 @@ java.lang.IllegalArgumentException: argument type mismatch
         at org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader.main(JarRsrcLoader.java:61)
 ```
 
-Afterwards `SchneiderUPSMonitor.exe` will have spawned `mspaint.exe` as a child process, running as SYSTEM.
+Afterwards `SchneiderUPSMonitor.exe` will have spawned `mspaint.exe` as a child process, running as `SYSTEM`.
 
 
 
