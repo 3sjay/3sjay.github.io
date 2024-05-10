@@ -12,7 +12,7 @@ So without further ado here is a slightly modified version of the report I sent 
 
 ## Schneider Electric APC Easy UPS Online - RMI Deserialization to RCE
 
-Schneider Electric APC Easy UPS suffer from an RCE due to vulnerable Classes within the Classpath. `<snippped some info>`
+Schneider Electric APC Easy UPS suffers from an RCE due to vulnerable Classes within the Classpath. `<snippped some info>`
 
 
 
