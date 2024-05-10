@@ -35,11 +35,10 @@ This leads to a scenario where pre-auth RCE as the SYSTEM user can be obtained t
 
 #### Root Cause Analysis:
 ---
-For a good introduction into the deserialization exploitation of RMI Methods with non-primitive data-type parameters the following blog post is recommended:
+For a good introduction into exploitation of the deserialization of RMI Methods with non-primitive data-type parameters the following blog post is recommended:
 [Mogwailabs - Attacking Java RMI Services After jep 290](https://mogwailabs.de/en/blog/2019/03/attacking-java-rmi-services-after-jep-290/)
 
-The overall problem still is, that non-primitive data types within Java RMI need to be generated on the other side and the infamous
-`readObject()` is called.
+The overall problem still is, that non-primitive data types within Java RMI need to be (re-)generated on the other side (server side) and the infamous `readObject()` is called.
 
 So as soon as a vulnerable Class (a Class containing a useful Gadget) is within the classpath and it is not restricted to be loaded, this can lead to RCE.
 
