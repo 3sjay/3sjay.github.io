@@ -108,10 +108,10 @@ C:\APCUPS\tomcat\webapps\SchneiderUPS\WEB-INF\lib>dir
                2 Dir(s)  16,346,681,344 bytes free
 ```
 
-[1] Is definatately vulnerable and used within the provided exploit. [2] Is very likely also vulnerable.
+[1] Is definately vulnerable and used within the provided exploit. [2] Is very likely also vulnerable.
 
 
-To summarize what is the case:
+To summarize:
 * JEP>=290 -> no direct RMI exploitation using `ysoserial.exploit.RMIRegistryExploit`
 * RMI exposed Method uses non-primitive data type as parameter 
 * Vulnerable Classes (containing RCE Gagdgets) in Classpath
@@ -122,7 +122,8 @@ To summarize what is the case:
 #### Exploit:
 ---
 
-```javaimport java.lang.reflect.Method;
+```java
+import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -163,15 +164,11 @@ public class Main {
 
 ```
 
-Like in a normal RMI client program, a handle to the registry is obtained [1]. And still like in a normal RMI client the Interface of the respective endpoint
-is obtained subsequently [2]. Then the InvocationHandler from the `Remote` Object obtained through the `lookup` call is obtained [3].
-A new Method is created through reflection, having the same "settings" as the normal "updateComputer" Method [4].
+Like in a normal RMI client program, a handle to the registry is obtained [1]. And still like in a normal RMI client the Interface of the respective endpoint is obtained subsequently [2]. Then the InvocationHandler from the `Remote` Object obtained through the `lookup` call is obtained [3]. A new Method is created through reflection, having the same "settings" as the normal "updateComputer" Method [4].
 
-At [5] a ysoserial payload is generated using the CommonsCollections6 gadget chain. The interesting part now starts to happen, we create an Object array [6] which 
-only includes our RCE Gadget. And finally call the invocation handler of our RMI Endpoint with the respective method and our malicious argument [7] to achieve RCE as SYSTEM user.
+At [5] a ysoserial payload is generated using the CommonsCollections6 gadget chain. The interesting part now starts to happen, we create an Object array [6] which only includes our RCE Gadget. And finally call the invocation handler of our RMI Endpoint with the respective method and our malicious argument [7] to achieve RCE as SYSTEM user.
 
-While there exist writups (https://mogwailabs.de/en/blog/2019/03/attacking-java-rmi-services-after-jep-290/) explaining how it is achievable in theory and also hint at solutions like using custom debugger setups, 
-this method of how to abuse that kind of vulnerabilities in an elegant and using just a small number of LoC is new to the public domain to my knowledge.
+While there exist writups (https://mogwailabs.de/en/blog/2019/03/attacking-java-rmi-services-after-jep-290/) explaining how it is achievable in theory and also hint at solutions like using custom debugger setups, this method of how to abuse that kind of vulnerabilities in an elegant and using just a small number of LoC is new to the public domain to my knowledge.
 
 Added note:
 ```
