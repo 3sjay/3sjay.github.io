@@ -233,7 +233,7 @@ Afterwards `SchneiderUPSMonitor.exe` will have spawned `mspaint.exe` as a child 
 
 #### Recommendation:
 ---
-It is recommended to update all the used libraries and cross-check with the listed ysoserial gadgets (https://github.com/frohoff/ysoserial) to have higher versions on each.
-Additionally it might make sense to add deserialization filters, for more info the documentation (https://docs.oracle.com/javase/10/core/serialization-filtering1.htm) can be consulted.
+It is recommended to update all the used libraries and cross-check with the listed ysoserial gadgets [ysoserial](https://github.com/frohoff/ysoserial) to have higher versions on each.
+Additionally it might make sense to add deserialization filters, for more info the documentation [serialization-filtering](https://docs.oracle.com/javase/10/core/serialization-filtering1.htm) can be consulted.
 
 
