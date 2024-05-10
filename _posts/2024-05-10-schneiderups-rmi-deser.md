@@ -33,7 +33,7 @@ The named product exposes an RMI registry on TCP port 41009 which exposes severa
 
 #### Root Cause Analysis:
 ---
-For a good introduction into exploitation of the deserialization of RMI Methods with non-primitive data-type parameters the following blog post is recommended:
+For a good introduction of attacking deserialization on the application level for RMI exposed Methods the following blog post is recommended:
 [Mogwailabs - Attacking Java RMI Services After jep 290](https://mogwailabs.de/en/blog/2019/03/attacking-java-rmi-services-after-jep-290/)
 
 The overall problem still is, that non-primitive data types within Java RMI need to be (re-)generated on the other side (server side) and the infamous `readObject()` is called.
